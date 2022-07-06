@@ -6,13 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "eleventy",
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "clean": "rm -rf public",
+    "rm": "cd _includes && find . -name '*.md' -print0 | xargs -0 rm && cd ..",
+    "generate": "node _scripts/mdFileGenerator.js",
+    "count": "cd _includes && ls | wc -l && cd ..",
+    "pub-count": "cd public && ls | wc -l && cd .."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@11ty/eleventy": "^1.0.0",
-    "markdown-it": "^13.0.1"
+    "@11ty/eleventy": "^1.0.1",
+    "@faker-js/faker": "^7.3.0",
+    "markdown-it": "^13.0.1",
+    "yaml": "^2.1.1"
   }
 }
